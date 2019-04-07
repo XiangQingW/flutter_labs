@@ -11,16 +11,21 @@ class NavigatorBarState extends State<NavigatorBar> {
   final bars = <Widget>[];
   var _curIdx = 0;
 
-  @override
-  void initState() {
-    bars..add(Home())..add(Search())..add(Email());
-    super.initState();
-  }
+  final _pageController = PageController(
+    initialPage: 0
+  );
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: bars[_curIdx],
+      body: PageView(
+        controller: _pageController,
+        children: <Widget>[
+          Home(),
+          Search(),
+          Email()
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("HOME")),
@@ -31,6 +36,7 @@ class NavigatorBarState extends State<NavigatorBar> {
         ],
         currentIndex: _curIdx,
         onTap: (int index) {
+          _pageController.jumpToPage(index);
           setState(() {
             _curIdx = index;
           });
