@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'dart:async';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -35,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    for (var i = 0; i < 10; i ++) {
+    for (var i = 0; i < 10; i++) {
       list.add(false);
     }
     super.initState();
@@ -49,25 +51,37 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: ExpansionPanelList(
-          expansionCallback: (index, isOpen) {
-            _expansionCb(index, isOpen);
-          },
-          children: list.map((isOpen) {
-            return ExpansionPanel(
-              isExpanded: isOpen,
-              headerBuilder: (context, isOpen) {
-                return ListTile(
-                  title: Text("hello"),
-                );
-              },
-              body: ListTile(title: Text("world"))
-            );
-          }).toList()
-        )
-      )
+    return WillPopScope(
+        child: Scaffold(
+            body: SingleChildScrollView(
+                child: ExpansionPanelList(
+                    expansionCallback: (index, isOpen) {
+                      _expansionCb(index, isOpen);
+                    },
+                    children: list.map((isOpen) {
+                      return ExpansionPanel(
+                          isExpanded: isOpen,
+                          headerBuilder: (context, isOpen) {
+                            return ListTile(
+                              title: Text("hello"),
+                            );
+                          },
+                          body: ListTile(title: Text("world")));
+                    }).toList()))),
+        onWillPop: _onWillPop);
+  }
+
+  Future<bool> _onWillPop() {
+    return showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text("exit?"),
+          actions: <Widget>[
+            FlatButton(onPressed: () => Navigator.pop(context, false), child: Text("No")),
+            FlatButton(onPressed: () => Navigator.pop(context, true), child: Text("Yes")),
+          ],
+        ),
     );
   }
+
 }
