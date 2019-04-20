@@ -23,6 +23,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  intl: ^0.15.7
 
 dev_dependencies:
   flutter_test:
@@ -41,9 +42,37 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #  - images/a_dot_burr.jpeg
-  #  - images/a_dot_ham.jpeg
+  assets:
+    - assets/images/apple.jpg
+    - assets/images/artichoke.jpg
+    - assets/images/asparagus.jpg
+    - assets/images/avocado.jpg
+    - assets/images/blackberry.jpg
+    - assets/images/cantaloupe.jpg
+    - assets/images/cauliflower.jpg
+    - assets/images/endive.jpg
+    - assets/images/fig.jpg
+    - assets/images/grape.jpg
+    - assets/images/green_bell_pepper.jpg
+    - assets/images/habanero.jpg
+    - assets/images/kale.jpg
+    - assets/images/kiwi.jpg
+    - assets/images/lemon.jpg
+    - assets/images/lime.jpg
+    - assets/images/mango.jpg
+    - assets/images/mushroom.jpg
+    - assets/images/nectarine.jpg
+    - assets/images/persimmon.jpg
+    - assets/images/plum.jpg
+    - assets/images/potato.jpg
+    - assets/images/radicchio.jpg
+    - assets/images/radish.jpg
+    - assets/images/squash.jpg
+    - assets/images/strawberry.jpg
+    - assets/images/tangelo.jpg
+    - assets/images/tomato.jpg
+    - assets/images/watermelon.jpg
+    - assets/images/orange_bell_pepper.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
