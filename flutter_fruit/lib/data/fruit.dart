@@ -1,9 +1,98 @@
+import 'package:flutter/cupertino.dart';
+
+enum FruitCategory {
+  allium,
+  berry,
+  citrus,
+  cruciferous,
+  fern,
+  flower,
+  fruit,
+  fungus,
+  gourd,
+  leafy,
+  legume,
+  melon,
+  root,
+  stealthFruit,
+  stoneFruit,
+  tropical,
+  tuber,
+  vegetable,
+}
+
+enum Season {
+  winter,
+  spring,
+  summer,
+  autumn,
+}
+
+class Trivia {
+  final String question;
+  final List<String> answers;
+  final int correctAnswerIndex;
+
+  const Trivia(this.question, this.answers, this.correctAnswerIndex);
+}
+
 class Fruit {
-  String imagePath;
+  Fruit({
+    @required this.id,
+    @required this.name,
+    @required this.imageAssetPath,
+    @required this.category,
+    @required this.shortDescription,
+    @required this.accentColor,
+    @required this.seasons,
+    @required this.vitaminAPercentage,
+    @required this.vitaminCPercentage,
+    @required this.servingSize,
+    @required this.caloriesPerServing,
+    @required this.trivia,
+    this.isFavorite = false,
+  });
 
-  String name;
+  final int id;
 
-  String description;
+  final String name;
 
-  Fruit({this.imagePath, this.name, this.description});
+  /// Each veggie has an associated image asset that's used as a background
+  /// image and icon.
+  final String imageAssetPath;
+
+  final FruitCategory category;
+
+  /// A short, snappy line.
+  final String shortDescription;
+
+  /// A color value to use when constructing UI elements to match the image
+  /// found at [imageAssetPath].
+  final Color accentColor;
+
+  /// Seasons during which a veggie is harvested.
+  final List<Season> seasons;
+
+  /// Percentage of the FDA's recommended daily value of vitamin A for someone
+  /// with a 2,000 calorie diet.
+  final int vitaminAPercentage;
+
+  /// Percentage of the FDA's recommended daily value of vitamin C for someone
+  /// with a 2,000 calorie diet.
+  final int vitaminCPercentage;
+
+  /// A text description of a single serving (e.g. '1 apple' or '1/2 cup').
+  final String servingSize;
+
+  /// Calories per serving (as described in [servingSize]).
+  final int caloriesPerServing;
+
+  /// Whether or not the veggie has been saved to the user's garden (i.e. marked
+  /// as a favorite).
+  bool isFavorite;
+
+  /// A set of trivia questions and answers related to the veggie.
+  final List<Trivia> trivia;
+
+//  String get categoryName => veggieCategoryNames[category];
 }

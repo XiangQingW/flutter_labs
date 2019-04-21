@@ -3,7 +3,9 @@ import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_fruit/styles.dart';
 import 'package:flutter_fruit/data/fruit.dart';
+import 'package:flutter_fruit/data/app_state.dart';
 import 'package:flutter_fruit/widgets/fruit_card.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class ListScreen extends StatelessWidget {
   List<Widget> _genFruitRows(List<Fruit> fruits, {bool inSeason = true}) {
@@ -39,16 +41,8 @@ class ListScreen extends StatelessWidget {
               ],
             )));
 
-        rows.addAll(_genFruitRows([
-          Fruit(
-              imagePath: "assets/images/apple.jpg",
-              name: "apple",
-              description: "this is an apple"),
-          Fruit(
-              imagePath: "assets/images/mango.jpg",
-              name: "mango",
-              description: "this is a mango")
-        ]));
+        final appState = ScopedModel.of<AppState>(context, rebuildOnChange: true);
+        rows.addAll(_genFruitRows(appState.allFruits));
 
         return DecoratedBox(
             decoration: BoxDecoration(color: Color(0xffffffff)),

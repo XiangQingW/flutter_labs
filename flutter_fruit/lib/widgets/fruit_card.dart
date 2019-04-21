@@ -22,7 +22,7 @@ class FruitCard extends StatelessWidget {
               style: Styles.headlineText,
             ),
             Text(
-              fruit.description,
+              fruit.shortDescription,
               style: Styles.minorText,
             )
           ],
@@ -38,7 +38,7 @@ class FruitCard extends StatelessWidget {
         height: 350,
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage(fruit.imagePath), fit: BoxFit.cover)),
+                image: AssetImage(fruit.imageAssetPath), fit: BoxFit.cover)),
       ),
       Positioned(right: 0.0, left: 0.0, bottom: 0.0, child: _buildDetails())
     ]);
