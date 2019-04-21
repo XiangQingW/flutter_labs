@@ -7,4 +7,6 @@ class AppState extends Model {
   AppState(): _fruits = LocalFruitProvider.fruits;
 
   List<Fruit> get allFruits => List<Fruit>.from(_fruits);
+
+  Fruit getFruit(int id) => _fruits.singleWhere((v) => v.id == id);
 }
