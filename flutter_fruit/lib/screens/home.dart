@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_fruit/screens/list.dart';
+import 'package:flutter_fruit/screens/setting.dart';
 
 
 class HomeScreen extends StatelessWidget {
@@ -28,8 +29,12 @@ class HomeScreen extends StatelessWidget {
         tabBuilder: (context, index) {
           if (index == 0) {
             return ListScreen();
+          } else if (index == 1) {
+            return null;
+          } else if (index == 2) {
+            return null;
           }
-          return null;
+          return SettingScreen();
         });
   }
 }
