@@ -30,6 +30,8 @@ abstract class Styles {
 
   static const Color iconGold = Color(0xffdba800);
 
+  static const Color settingsLineation = Color(0xffbcbbc1);
+
   static const calorieIcon = IconData(
     0xf3bb,
     fontFamily: CupertinoIcons.iconFont,

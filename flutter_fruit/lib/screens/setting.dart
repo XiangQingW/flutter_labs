@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_fruit/styles.dart';
 import 'package:flutter_fruit/widgets/setting_item.dart';
+import 'package:flutter_fruit/widgets/setting_group.dart';
 
 class SettingScreen extends StatelessWidget {
   Widget _buildCaloriesItem(BuildContext context) {
@@ -36,8 +37,12 @@ class SettingScreen extends StatelessWidget {
           SliverSafeArea(
               sliver: SliverList(
                   delegate: SliverChildListDelegate(<Widget>[
-            _buildCaloriesItem(context),
-            _buildCategoriesItem(context),
+            SettingGroup(
+              items: [
+                _buildCaloriesItem(context),
+                _buildCategoriesItem(context),
+              ],
+            )
           ])))
         ],
       ),
