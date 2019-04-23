@@ -59,9 +59,9 @@ class CloseButtonState extends State<CloseButton> {
             child: Container(
           width: 30,
           height: 30,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-          ),
+//          decoration: BoxDecoration(
+//            borderRadius: BorderRadius.circular(15),
+//          ),
           child: Center(
             child: Icon(CupertinoIcons.clear_thick),
           ),

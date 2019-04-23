@@ -28,6 +28,13 @@ enum Season {
   autumn,
 }
 
+const Map<Season, String> seasonNames = {
+  Season.winter: 'Winter',
+  Season.spring: 'Spring',
+  Season.summer: 'Summer',
+  Season.autumn: 'Autumn',
+};
+
 class Trivia {
   final String question;
   final List<String> answers;

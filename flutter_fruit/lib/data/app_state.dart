@@ -9,4 +9,10 @@ class AppState extends Model {
   List<Fruit> get allFruits => List<Fruit>.from(_fruits);
 
   Fruit getFruit(int id) => _fruits.singleWhere((v) => v.id == id);
+
+  void setFavorite(int id, bool isFavorite) {
+    Fruit f = getFruit(id);
+    f.isFavorite = isFavorite;
+    notifyListeners();
+  }
 }
