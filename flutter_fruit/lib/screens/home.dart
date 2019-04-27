@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_fruit/screens/list.dart';
 import 'package:flutter_fruit/screens/setting.dart';
+import 'package:flutter_fruit/screens/search.dart';
 
 
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return CupertinoTabScaffold(tabBar: CupertinoTabBar(items: [
       BottomNavigationBarItem(
         icon: Icon(CupertinoIcons.home),
@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
           } else if (index == 1) {
             return null;
           } else if (index == 2) {
-            return null;
+            return SearchScreen();
           }
           return SettingScreen();
         });
