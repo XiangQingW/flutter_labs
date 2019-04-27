@@ -5,6 +5,7 @@ import 'package:flutter_fruit/data/app_state.dart';
 import 'package:flutter_fruit/widgets/close_button.dart';
 import 'package:flutter_fruit/data/fruit.dart';
 import 'package:flutter_fruit/styles.dart';
+import 'package:flutter_fruit/widgets/trivia.dart';
 
 class ServingInfoChart extends StatelessWidget {
   ServingInfoChart({this.fruit});
@@ -107,27 +108,12 @@ class DetailsScreenState extends State<DetailsScreen> {
                         _viewIndex = value;
                       });
                     }),
-                _viewIndex == 0 ? InfoView(id: widget.id) : Text('2'),
+                _viewIndex == 0 ? InfoView(id: widget.id) : TriviaView(id: widget.id),
               ],
             ),
           )
         ],
       ),
-    );
-  }
-}
-
-class SpaceBetweenRow extends StatelessWidget {
-  SpaceBetweenRow({this.left, this.right});
-
-  final Widget left;
-  final Widget right;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[left, right],
     );
   }
 }
@@ -189,42 +175,7 @@ class InfoView extends StatelessWidget {
 
     columChildren.add(ServingInfoChart(fruit: fruit,));
 
-//    columChildren.add(Text("Serving info"));
-//
-//    columChildren.add(Container(
-//      width: double.infinity,
-//      decoration: BoxDecoration(
-//        border: Border.all(width: 3.0),
-//      ),
-//      child: Padding(
-//        padding: EdgeInsets.all(24.0),
-//        child: Column(
-//          crossAxisAlignment: CrossAxisAlignment.start,
-//          children: [
-//            SpaceBetweenRow(
-//              left: Text("Serving size: "),
-//              right: Text(fruit.servingSize),
-//            ),
-//            SpaceBetweenRow(
-//              left: Text("Calories: "),
-//              right: Text(fruit.caloriesPerServing.toString()),
-//            ),
-//            SpaceBetweenRow(
-//              left: Text("Vitamin A: "),
-//              right: Text(fruit.vitaminAPercentage.toString()),
-//            ),
-//            SpaceBetweenRow(
-//              left: Text("Vitamin C: "),
-//              right: Text(fruit.vitaminCPercentage.toString()),
-//            ),
-//            SizedBox(height: 20.0),
-//            Text("Percent daily values based on a diet of 1600 calories."),
-//          ],
-//        ),
-//      ),
-//    ));
-    
-    columChildren.add(SizedBox(height: 24.0,))
+    columChildren.add(SizedBox(height: 24.0,));
 
     columChildren.add(
       Row(
